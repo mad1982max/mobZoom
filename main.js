@@ -380,7 +380,6 @@ grid.addEventListener('mousemove', function(event) {
     grid.onwheel = ZoomInOut;
 
     function ZoomInOut(e) {
-        console.log('****** ', grid.getBoundingClientRect());
             let gridRect = grid.getBoundingClientRect();
             let wBox = gridRect.width;
             let hBox = gridRect.height;
@@ -404,14 +403,8 @@ grid.addEventListener('mousemove', function(event) {
             }
             zoomStepView.innerText = zoom.toFixed(2);
             let newData = `${+x} ${+y} ${+w} ${+h}`;
-            grid.setAttribute('viewBox', newData);  
-            
-            
-
-
-
-
-
+            grid.setAttribute('viewBox', newData);   
+        
         // if(zoom < 0.7) {
         //     tempLayer.setAttribute('style', 'opacity:1');
         //     if(zoom < 0.5) {
@@ -426,22 +419,14 @@ grid.addEventListener('mousemove', function(event) {
     }
 
 //------------------------------------PAN------------------------
+    grid.addEventListener('mousedown', onPointerDown);
+    grid.addEventListener('mouseup', onPointerUp);
+    grid.addEventListener('mouseleave', onPointerUp);
+    grid.addEventListener('mousemove', onPointerMove);
 
-    if (window.PointerEvent) {
-        grid.addEventListener('pointerdown', onPointerDown);
-        grid.addEventListener('pointerup', onPointerUp);
-        grid.addEventListener('pointerleave', onPointerUp);
-        grid.addEventListener('pointermove', onPointerMove);
-    } else {
-        grid.addEventListener('mousedown', onPointerDown);
-        grid.addEventListener('mouseup', onPointerUp);
-        grid.addEventListener('mouseleave', onPointerUp);
-        grid.addEventListener('mousemove', onPointerMove);
-
-        grid.addEventListener('touchstart', onPointerDown);
-        grid.addEventListener('touchend', onPointerUp);
-        grid.addEventListener('touchmove', onPointerMove);
-    }
+    grid.addEventListener('touchstart', onPointerDown);
+    grid.addEventListener('touchend', onPointerUp);
+    grid.addEventListener('touchmove', onPointerMove); 
 
     let point = grid.createSVGPoint();
     function getPointFromEvent (event) {

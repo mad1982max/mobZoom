@@ -1,5 +1,6 @@
 body {
     overflow: hidden;
+    height: 100vh;
 }
 
 body * {
@@ -8,10 +9,13 @@ body * {
 
 .main {
     width: 66%;
+    min-width: 600px;
 	position: absolute;
     top: 0px;
     overflow: hidden;
-    right: 0px;
+    margin-right: 0;
+    right: 0;
+    touch-action: none
 }
 
 h4 {
@@ -33,7 +37,6 @@ h4 {
     color: red;
 }
 
-
 object {
     border: 2px solid rgb(151, 153, 151);
     overflow: hidden;
@@ -53,7 +56,6 @@ object {
     display: none;
     border: none;
 }
-
 
 .panel {
     width: 150px;
@@ -96,5 +98,17 @@ p {
     width: 130px;
     background: rgb(185, 62, 62);
 }
+
+/* @media only screen and (max-width: 800px) {
+    body {
+      background-color: rgb(213, 236, 99);
+    }
+    .main {
+        margin-left: 200px;
+        width: 50%;
+    }
+
+} */
+
 
 
