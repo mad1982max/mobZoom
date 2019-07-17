@@ -1,216 +1,217 @@
 window.onload = () => {
-    let svgNameSpace = "http://www.w3.org/2000/svg";
+    let svgNameSpace = 'http://www.w3.org/2000/svg';
     let bookedColor = '#ffad99';
     let freeColor = '#99ff99';
     let icoWidth = 3;
     let rangeOfTemp = 25;
     let zoomStep = 1.2;
     let zoom = 1;
+    let edgeOfZoom = 0.13;
     let bookable = [];
     let nonBookable = [];
     let rooms = 
     [
         {
-            "bookable": true,
-            "co2": 300,
-            "waitingTimeSec": 0,
-            "lux": 153.04,
-            "name": "Room 1",
-            "temperature": 26,
-            "presence": true,
-            "booked": false,
-            "id": 'product-04-X03-C'
+            'bookable': true,
+            'co2': 300,
+            'waitingTimeSec': 0,
+            'lux': 153.04,
+            'name': 'Room 1',
+            'temperature': 26,
+            'presence': true,
+            'booked': false,
+            'id': 'product-04-X03-C'
         },
         {
-            "bookable": true,
-            "co2": 620.16,
-            "waitingTimeSec": 0,
-            "lux": 153.04,
-            "name": "Room 2",
-            "temperature": 15,
-            "presence": true,
-            "booked": false,
-            "id": 'product-04-X04-D'
+            'bookable': true,
+            'co2': 620.16,
+            'waitingTimeSec': 0,
+            'lux': 153.04,
+            'name': 'Room 2',
+            'temperature': 15,
+            'presence': true,
+            'booked': false,
+            'id': 'product-04-X04-D'
         },
         {
-            "bookable": true,
-            "co2": 620.16,
-            "waitingTimeSec": 0,
-            "lux": 153.04,
-            "name": "Room 3",
-            "temperature": 23.5,
-            "presence": true,
-            "booked": true,
-            "id": 'product-04-X12-C'
+            'bookable': true,
+            'co2': 620.16,
+            'waitingTimeSec': 0,
+            'lux': 153.04,
+            'name': 'Room 3',
+            'temperature': 23.5,
+            'presence': true,
+            'booked': true,
+            'id': 'product-04-X12-C'
         },
         {
-            "bookable": true,
-            "co2": 620.16,
-            "waitingTimeSec": 0,
-            "lux": 153.04,
-            "name": "Room 4",
-            "temperature": 23.5,
-            "presence": true,
-            "booked": false,
-            "id": 'product-04-X13-D'
+            'bookable': true,
+            'co2': 620.16,
+            'waitingTimeSec': 0,
+            'lux': 153.04,
+            'name': 'Room 4',
+            'temperature': 23.5,
+            'presence': true,
+            'booked': false,
+            'id': 'product-04-X13-D'
         },
         {
-            "bookable": true,
-            "co2": 350,
-            "waitingTimeSec": 0,
-            "lux": 153.04,
-            "name": "Room 5",
-            "temperature": 30,
-            "presence": true,
-            "booked": false,
-            "id": 'product-04-Y04-D'
+            'bookable': true,
+            'co2': 350,
+            'waitingTimeSec': 0,
+            'lux': 153.04,
+            'name': 'Room 5',
+            'temperature': 30,
+            'presence': true,
+            'booked': false,
+            'id': 'product-04-Y04-D'
         },
         {
-            "bookable": true,
-            "co2": 300,
-            "waitingTimeSec": 0,
-            "lux": 153.04,
-            "name": "Room 6",
-            "temperature": 20,
-            "presence": true,
-            "booked": true,
-            "id": 'product-04-Y12-D'
+            'bookable': true,
+            'co2': 300,
+            'waitingTimeSec': 0,
+            'lux': 153.04,
+            'name': 'Room 6',
+            'temperature': 20,
+            'presence': true,
+            'booked': true,
+            'id': 'product-04-Y12-D'
         },
         {
-            "bookable": true,
-            "co2": 300,
-            "waitingTimeSec": 0,
-            "lux": 153.04,
-            "name": "Room 7",
-            "temperature": 10,
-            "presence": true,
-            "booked": false,
-            "id": 'product-04-Y04-C'
+            'bookable': true,
+            'co2': 300,
+            'waitingTimeSec': 0,
+            'lux': 153.04,
+            'name': 'Room 7',
+            'temperature': 10,
+            'presence': true,
+            'booked': false,
+            'id': 'product-04-Y04-C'
         },
         {
-            "bookable": true,
-            "co2": 300,
-            "waitingTimeSec": 0,
-            "lux": 153.04,
-            "name": "Room 8",
-            "temperature": 20,
-            "presence": true,
-            "booked": false,
-            "id": 'product-04-Y06-C'
+            'bookable': true,
+            'co2': 300,
+            'waitingTimeSec': 0,
+            'lux': 153.04,
+            'name': 'Room 8',
+            'temperature': 20,
+            'presence': true,
+            'booked': false,
+            'id': 'product-04-Y06-C'
         },
         {
-            "bookable": true,
-            "co2": 300,
-            "waitingTimeSec": 0,
-            "lux": 153.04,
-            "name": "Room 9",
-            "temperature": 30,
-            "presence": true,
-            "booked": false,
-            "id": 'product-04-Y09-D'
+            'bookable': true,
+            'co2': 300,
+            'waitingTimeSec': 0,
+            'lux': 153.04,
+            'name': 'Room 9',
+            'temperature': 30,
+            'presence': true,
+            'booked': false,
+            'id': 'product-04-Y09-D'
         },
         {
-            "bookable": true,
-            "co2": 300,
-            "waitingTimeSec": 0,
-            "lux": 153.04,
-            "name": "Room 10",
-            "temperature": 34,
-            "presence": true,
-            "booked": false,
-            "id": 'product-04-Y12-C'
+            'bookable': true,
+            'co2': 300,
+            'waitingTimeSec': 0,
+            'lux': 153.04,
+            'name': 'Room 10',
+            'temperature': 34,
+            'presence': true,
+            'booked': false,
+            'id': 'product-04-Y12-C'
         },
         {
-            "bookable": true,
-            "co2": 300,
-            "waitingTimeSec": 0,
-            "lux": 153.04,
-            "name": "Room 11",
-            "temperature": 26,
-            "presence": true,
-            "booked": false,
-            "id": 'product-04-X13-I'
+            'bookable': true,
+            'co2': 300,
+            'waitingTimeSec': 0,
+            'lux': 153.04,
+            'name': 'Room 11',
+            'temperature': 26,
+            'presence': true,
+            'booked': false,
+            'id': 'product-04-X13-I'
         },
         {
-            "bookable": true,
-            "co2": 300,
-            "waitingTimeSec": 0,
-            "lux": 153.04,
-            "name": "Room 12",
-            "temperature": 40,
-            "presence": true,
-            "booked": false,
-            "id": 'product-04-Y09-H'
+            'bookable': true,
+            'co2': 300,
+            'waitingTimeSec': 0,
+            'lux': 153.04,
+            'name': 'Room 12',
+            'temperature': 40,
+            'presence': true,
+            'booked': false,
+            'id': 'product-04-Y09-H'
         },
         {
-            "bookable": true,
-            "co2": 300,
-            "waitingTimeSec": 0,
-            "lux": 153.04,
-            "name": "Room 13",
-            "temperature": 8,
-            "presence": true,
-            "booked": true,
-            "id": 'product-04-Y06-D'
+            'bookable': true,
+            'co2': 300,
+            'waitingTimeSec': 0,
+            'lux': 153.04,
+            'name': 'Room 13',
+            'temperature': 8,
+            'presence': true,
+            'booked': true,
+            'id': 'product-04-Y06-D'
         },
         {
-            "bookable": true,
-            "co2": 300,
-            "waitingTimeSec": 0,
-            "lux": 153.04,
-            "name": "Room 14",
-            "temperature": 19,
-            "presence": true,
-            "booked": false,
-            "id": 'product-04-Y09-C'
+            'bookable': true,
+            'co2': 300,
+            'waitingTimeSec': 0,
+            'lux': 153.04,
+            'name': 'Room 14',
+            'temperature': 19,
+            'presence': true,
+            'booked': false,
+            'id': 'product-04-Y09-C'
         },
         {
-            "bookable": true,
-            "co2": 300,
-            "waitingTimeSec": 0,
-            "lux": 153.04,
-            "name": "Room 15",
-            "temperature": 18,
-            "presence": true,
-            "booked": true,
-            "id": 'product-04-X13-H'
+            'bookable': true,
+            'co2': 300,
+            'waitingTimeSec': 0,
+            'lux': 153.04,
+            'name': 'Room 15',
+            'temperature': 18,
+            'presence': true,
+            'booked': true,
+            'id': 'product-04-X13-H'
         },
         {
-            "bookable": true,
-            "co2": 300,
-            "waitingTimeSec": 0,
-            "lux": 153.04,
-            "name": "Room 16",
-            "temperature": 22,
-            "presence": true,
-            "booked": true,
-            "id": 'product-04-X-11-H'
+            'bookable': true,
+            'co2': 300,
+            'waitingTimeSec': 0,
+            'lux': 153.04,
+            'name': 'Room 16',
+            'temperature': 22,
+            'presence': true,
+            'booked': true,
+            'id': 'product-04-X-11-H'
         },
         
         {
-            "bookable": false,
-            "name": "WC",
-            "id": 'product-04-Y05-Ha'
+            'bookable': false,
+            'name': 'WC',
+            'id': 'product-04-Y05-Ha'
         },
         {
-            "bookable": false,
-            "name": "WC",
-            "id": 'product-04-X07-Hb'
+            'bookable': false,
+            'name': 'WC',
+            'id': 'product-04-X07-Hb'
         },
         {
-            "bookable": false,
-            "name": "Elevator",
-            "id": 'product-04-X10-Ib'
+            'bookable': false,
+            'name': 'Elevator',
+            'id': 'product-04-X10-Ib'
         },
         {
-            "bookable": false,
-            "name": "Elevator",
-            "id": 'product-04-Y10-Ia'
+            'bookable': false,
+            'name': 'Elevator',
+            'id': 'product-04-Y10-Ia'
         }
     ];
 
     let tempLayer;
-    let zoomStepView = document.getElementById("zoom");
+    let zoomStepView = document.getElementById('zoom');
     let pointerSvg = document.getElementById('pointerView');
     let svgObj = document.getElementById('svgObj');
     let svgDocument = svgObj.contentDocument;
@@ -223,16 +224,18 @@ window.onload = () => {
     let showTempBtn = document.getElementById('showTemp');
     let reset = document.getElementById('reset');
     //-------------------------------------------------------------------------
-    buttonBook.addEventListener("click", book);
-    grid.addEventListener("click", click);
-    showTempBtn.addEventListener("click", setTemp);
-    reset.addEventListener("click", resetTemp);
+    buttonBook.addEventListener('click', book);
+    grid.addEventListener('click', click);
+    showTempBtn.addEventListener('click', setTemp);
+    reset.addEventListener('click', resetTemp);
+    grid.addEventListener('dblclick', zoomToRoom)
     
     filterBookable(rooms);
     showRoomsInPanel();
     highlightRooms();
     //showSigns();
     //showTemp();    
+
 //----------------filter all rooms (parsm - bookkable)----------------------------
     function filterBookable(arr) {
         bookable = arr.filter(space => space.bookable === true);
@@ -346,7 +349,7 @@ function createTempSign(x, y, temp) {
     let newCoord = screenToSVG(x, y);
     let color = temp > rangeOfTemp? bookedColor: freeColor;
     let g = document.createElementNS(svgNameSpace, 'g');
-    g.setAttributeNS(null, "pointer-events", "none");
+    g.setAttributeNS(null, 'pointer-events', 'none');
     let circle = document.createElementNS(svgNameSpace, 'circle');
     circle.setAttributeNS(null, 'cx', newCoord.x);
     circle.setAttributeNS(null, 'cy', newCoord.y);
@@ -356,7 +359,7 @@ function createTempSign(x, y, temp) {
     circle.setAttributeNS(null, 'r', 1);
 
     let text = document.createElementNS(svgNameSpace, 'text');
-    text.setAttributeNS(null,"font-size","3");
+    text.setAttributeNS(null,'font-size','3');
     text.setAttributeNS(null, 'x', newCoord.x);
     text.setAttributeNS(null, 'y', newCoord.y);
     text.setAttributeNS(null, 'dy', 0.35);
@@ -377,14 +380,15 @@ grid.addEventListener('mousemove', function(event) {
 });
 
 //--------------------------ZOOM------------------------
-    grid.onwheel = ZoomInOut;
+    grid.addEventListener('wheel', zoomInOut);
 
-    function ZoomInOut(e) {
-            let gridRect = grid.getBoundingClientRect();
-            let wBox = gridRect.width;
-            let hBox = gridRect.height;
-            // let wBox = grid.getAttribute('width');
-            // let hBox = grid.getAttribute('height');
+    function zoomInOut(e) {
+            if(zoom < 0.14 && e.deltaY < 0) return
+            // let gridRect = grid.getBoundingClientRect(); // if h = 100vh
+            // let wBox = gridRect.width;
+            // let hBox = gridRect.height;
+            let wBox = grid.getAttribute('width');
+            let hBox = grid.getAttribute('height');
             let [x, y, w, h] = grid.getAttribute('viewBox').split(' ');        
     
             if(e.deltaY > 0) {
@@ -423,48 +427,48 @@ grid.addEventListener('mousemove', function(event) {
     grid.addEventListener('mouseup', onPointerUp);
     grid.addEventListener('mouseleave', onPointerUp);
     grid.addEventListener('mousemove', onPointerMove);
-
-    grid.addEventListener('touchstart', onPointerDown);
+    grid.addEventListener('touchstart', onPointerDown, { passive: false });
     grid.addEventListener('touchend', onPointerUp);
     grid.addEventListener('touchmove', onPointerMove); 
 
     let point = grid.createSVGPoint();
+
     function getPointFromEvent (event) {
     
-    if (event.targetTouches) {
-        point.x = event.targetTouches[0].clientX;
-        point.y = event.targetTouches[0].clientY;
-    } else {
-        point.x = event.clientX;
-        point.y = event.clientY;
-    }    
-    
-    let invertedSVGMatrix = grid.getScreenCTM().inverse();    
-    return point.matrixTransform(invertedSVGMatrix);
+        if (event.targetTouches) {
+            point.x = event.targetTouches[0].clientX;
+            point.y = event.targetTouches[0].clientY;
+        } else {
+            point.x = event.clientX;
+            point.y = event.clientY;
+        }    
+        
+        let invertedSVGMatrix = grid.getScreenCTM().inverse();    
+        return point.matrixTransform(invertedSVGMatrix);
     }
+
     let isPointerDown = false;
     let pointerOrigin;
 
     function onPointerDown(event) {
-    isPointerDown = true;      
-    pointerOrigin = getPointFromEvent(event);
+        isPointerDown = true;      
+        pointerOrigin = getPointFromEvent(event);
     }
 
     let viewBox = grid.viewBox.baseVal;
+
     function onPointerMove (event) {    
-    if (!isPointerDown) {
-        return;
-    }
-    
-    event.preventDefault();
-    let pointerPosition = getPointFromEvent(event);
-    
-    viewBox.x -= (pointerPosition.x - pointerOrigin.x);
-    viewBox.y -= (pointerPosition.y - pointerOrigin.y);
+        if (!isPointerDown) return
+        
+        event.preventDefault();
+        let pointerPosition = getPointFromEvent(event);
+        
+        viewBox.x -= (pointerPosition.x - pointerOrigin.x);
+        viewBox.y -= (pointerPosition.y - pointerOrigin.y);
     }
 
     function onPointerUp() {
-    isPointerDown = false;
+        isPointerDown = false;
     }
 
 //----------------------------book----------------------------------------
@@ -474,7 +478,6 @@ grid.addEventListener('mousemove', function(event) {
         let index = bookable.findIndex(room => room.id === current);
         bookable[index].booked = true;
         grid.getElementById(current).firstElementChild.style.cssText = `fill: ${bookedColor}; opacity: 0.7`;
-
         showRoomsInPanel();
     } 
 //----------------------reset-----------------------------
@@ -482,28 +485,37 @@ grid.addEventListener('mousemove', function(event) {
         if(!tempLayer) return       
         tempLayer.parentNode.removeChild(tempLayer);
         tempLayer = null;
+    }    
+    //----------------------zoomToRoom-----------------------------    
+
+    function zoomToRoom(e){
+        let curSquare = e.target.parentElement.id;
+        let clickedRoom = rooms.find(r => r.id === curSquare);
+
+        if(!clickedRoom) return
+        let position = getCenterOfRoom(curSquare);
+        let centerOfROOM_trans = screenToSVG(position.xCenter, position.yCenter);
+
+        let {left, top, width, height} = grid.getBoundingClientRect();
+        let xCenter = left + width/2;
+        let yCenter = top + height/2;
+        let centerOfsvg_trans = screenToSVG(xCenter, yCenter);
+        
+        let dx = centerOfsvg_trans.x - centerOfROOM_trans.x;
+        let dy = centerOfsvg_trans.y - centerOfROOM_trans.y;
+        let viewBox = grid.viewBox.baseVal;
+        viewBox.x -= dx;
+        viewBox.y -= dy;
+
+        let zoomValue = zoom / edgeOfZoom;
+        let wBox = grid.getAttribute('width');
+        let hBox = grid.getAttribute('height');
+        viewBox.x -= (xCenter) / wBox * (viewBox.width / zoomValue - viewBox.width);
+        viewBox.y -= (yCenter) / hBox * (viewBox.height / zoomValue - viewBox.height);
+        viewBox.width /= zoomValue;
+        viewBox.height /= zoomValue;
+        zoom /= zoomValue;            
+        zoomStepView.innerText = zoom.toFixed(2);
     }
+
 }
-
-    
-    //----------------------zoomToRoom-----------------------------
-    // function zoomToRoom(id){
-    //     let position = getCenterOfRoom(id);
-    //     zoomRoom(position.xCenter.toFixed(2), position.yCenter.toFixed(2));
-    // }
-
-    //     function zoomRoom(xPoint, yPoint) {
-    //     let wBox = grid.getAttribute('width');
-    //     let hBox = grid.getAttribute('height');
-    //     let [x, y, w, h] = grid.getAttribute('viewBox').split(' ');        
-
-    //         x -= (xPoint) / wBox * (w / roomZoomClick - w);
-    //         y -= (yPoint) / hBox * (h / roomZoomClick - h);
-    //         w /= roomZoomClick;
-    //         h /= roomZoomClick;
-    //         zoom /= roomZoomClick;            
-    //     zoomStepView.innerText = zoom.toFixed(2);
-    //     let newData = `${+x} ${+y} ${+w} ${+h}`;
-    //     grid.setAttribute('viewBox', newData); 
-    //     tempLayer.setAttribute('style', 'opacity:1');     
-    // }
