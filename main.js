@@ -380,8 +380,12 @@ grid.addEventListener('mousemove', function(event) {
     grid.onwheel = ZoomInOut;
 
     function ZoomInOut(e) {
-            let wBox = grid.getAttribute('width');
-            let hBox = grid.getAttribute('height');
+        console.log('****** ', grid.getBoundingClientRect());
+            let gridRect = grid.getBoundingClientRect();
+            let wBox = gridRect.width;
+            let hBox = gridRect.height;
+            // let wBox = grid.getAttribute('width');
+            // let hBox = grid.getAttribute('height');
             let [x, y, w, h] = grid.getAttribute('viewBox').split(' ');        
     
             if(e.deltaY > 0) {
@@ -400,7 +404,13 @@ grid.addEventListener('mousemove', function(event) {
             }
             zoomStepView.innerText = zoom.toFixed(2);
             let newData = `${+x} ${+y} ${+w} ${+h}`;
-            grid.setAttribute('viewBox', newData);              
+            grid.setAttribute('viewBox', newData);  
+            
+            
+
+
+
+
 
         // if(zoom < 0.7) {
         //     tempLayer.setAttribute('style', 'opacity:1');

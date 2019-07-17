@@ -1,20 +1,17 @@
 body {
     overflow: hidden;
+}
+
+body * {
     box-sizing: border-box;
 }
 
 .main {
-    height: 100vh;
     width: 66%;
 	position: absolute;
-    top: 10px;
+    top: 0px;
     overflow: hidden;
     right: 0px;
-}
-
-#svgObj1 {
-    z-index: 100;
-    touch-action: pan-left pinch-zoom;
 }
 
 h4 {
@@ -40,6 +37,7 @@ h4 {
 object {
     border: 2px solid rgb(151, 153, 151);
     overflow: hidden;
+    height: 100vh;
 }
 
 #buttonBook {
@@ -56,15 +54,6 @@ object {
     border: none;
 }
 
-#message {
-    position: absolute;
-    top: 700px;
-    left: 295px;
-    width: 100px;
-    height: 50px;
-    border-radius: 5px;
-    font-size: 12px;
-}
 
 .panel {
     width: 150px;
@@ -108,11 +97,4 @@ p {
     background: rgb(185, 62, 62);
 }
 
-#grid {
-    touch-action: pan-right pinch-zoom;
-}
-
-svg {
-    touch-action: pan-left pinch-zoom;
-}
 
