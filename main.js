@@ -295,6 +295,7 @@ window.onload = () => {
 
 //--------------click on svg-----------------------------    
     function click(e) {
+        e.preventdefault();
         let curSquare = e.target.parentElement.id;
         let clickedRoom = rooms.find(r => r.id === curSquare);
         if(clickedRoom) {
@@ -380,6 +381,7 @@ grid.addEventListener('mousemove', function(event) {
     grid.onwheel = ZoomInOut;
 
     function ZoomInOut(e) {
+        e.preventdefault()
             let wBox = grid.getAttribute('width');
             let hBox = grid.getAttribute('height');
             let [x, y, w, h] = grid.getAttribute('viewBox').split(' ');        
@@ -418,6 +420,7 @@ grid.addEventListener('mousemove', function(event) {
 //------------------------------------PAN------------------------
 
     if (window.PointerEvent) {
+        console.log('PointerEvent')
         grid.addEventListener('pointerdown', onPointerDown);
         grid.addEventListener('pointerup', onPointerUp);
         grid.addEventListener('pointerleave', onPointerUp);
@@ -435,7 +438,7 @@ grid.addEventListener('mousemove', function(event) {
 
     let point = grid.createSVGPoint();
     function getPointFromEvent (event) {
-    
+        e.preventdefault();
     if (event.targetTouches) {
         point.x = event.targetTouches[0].clientX;
         point.y = event.targetTouches[0].clientY;
@@ -451,12 +454,14 @@ grid.addEventListener('mousemove', function(event) {
     let pointerOrigin;
 
     function onPointerDown(event) {
+        e.preventdefault();
     isPointerDown = true;      
     pointerOrigin = getPointFromEvent(event);
     }
 
     let viewBox = grid.viewBox.baseVal;
-    function onPointerMove (event) {    
+    function onPointerMove (event) { 
+        e.preventdefault();   
     if (!isPointerDown) {
         return;
     }
