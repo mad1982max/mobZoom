@@ -107,3 +107,11 @@ p {
     background: rgb(185, 62, 62);
 }
 
+#grid {
+    touch-action: pan-right pinch-zoom;
+}
+
+svg {
+    touch-action: pan-left pinch-zoom;
+}
+
