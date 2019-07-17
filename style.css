@@ -1,0 +1,109 @@
+body {
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.main {
+    height: 100vh;
+    width: 66%;
+	position: absolute;
+    top: 10px;
+    overflow: hidden;
+    right: 0px;
+}
+
+#svgObj1 {
+    z-index: 100;
+}
+
+h4 {
+    padding: 5px;
+}
+
+.free {
+    padding: 5px;
+    background: lightgreen;
+}
+
+.booked {
+    padding: 5px;
+    background: rgb(241, 123, 123);
+}
+
+#alert{
+    font-size: 14px;
+    color: red;
+}
+
+
+object {
+    border: 2px solid rgb(151, 153, 151);
+    overflow: hidden;
+}
+
+#buttonBook {
+    position: absolute;
+    top: 10px;
+    left: 150px;
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    background: rgb(42, 86, 143);
+    color: white;
+    font-size: 15px;
+    display: none;
+    border: none;
+}
+
+#message {
+    position: absolute;
+    top: 700px;
+    left: 295px;
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.panel {
+    width: 150px;
+}
+
+h4 {
+    margin-bottom: 5px;
+}
+
+p {    
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 5px;;
+}
+
+#roomNo {
+    background: rgb(240, 231, 231);
+}
+
+.wrapper {
+    height: 80px;
+}
+
+#showTemp, #reset {
+    width: 60px;
+    margin-top: 5px;;
+    padding: 5px;
+    border-radius: 5px;
+    background: rgb(153, 151, 149);
+    color: white;
+    font-size: 15px;
+    border: none
+}
+
+#temp {
+    width: 60px;
+}
+
+#reset {
+    width: 130px;
+    background: rgb(185, 62, 62);
+}
+
